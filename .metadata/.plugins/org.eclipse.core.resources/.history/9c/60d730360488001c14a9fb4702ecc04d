@@ -6,8 +6,7 @@ public class ColorNode {
 	private int col;
 	
 	public ColorNode(int raw, int col) {
-		this.raw = raw;
-		this.col = col;
+		
 	}
 
 	public int getRaw() {

@@ -28,8 +28,7 @@ public class Test {
 		for(int i=0; i<colorGrid.length;i++) {
 			for(int j=0; j<colorGrid[i].length; j++) {
 				System.out.println("row : Col - "+i+" : "+j);
-				ColorNode nodec = new ColorNode(i, j);
-				if(!checkContainsinAlreadyCheckedList(nodec)) {
+				if(!checkContainsinAlreadyCheckedList(new ColorNode(i, j))) {
 					checkedArrayList.add(new ColorNode(i, j));
 					temlArrayList.add(new ColorNode(i, j));
 					if(checkAdjacentVertically(i,j)) {
@@ -144,7 +143,7 @@ public class Test {
 	public static void printLargestGrid() {
 		System.out.println("Largest Grid");
 		for(int i=0; i<largerstArrayList.size();i++) {
-			System.out.println(largerstArrayList.get(i).getRaw() + " : "+largerstArrayList.get(i).getCol());
+			System.out.println(largerstArrayList.get(i).getRaw() + " : "+largerstArrayList.get(i).getRaw());
 		}
 	}
 	
@@ -152,12 +151,11 @@ public class Test {
 		boolean isTrue = false;
 		for(int i=0; i<checkedArrayList.size();i++) {
 			if(checkedArrayList.get(i).getCol() == node.getCol() && checkedArrayList.get(i).getRaw() == node.getRaw()) {
-				isTrue = true;
+				isTrue = checkedArrayList.get(i).equals(node);
 			}
 			if(isTrue)
 				break;
 		}
-		System.out.println("Existance : "+isTrue);
 		return isTrue;
 	}
 }

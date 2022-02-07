@@ -144,7 +144,7 @@ public class Test {
 	public static void printLargestGrid() {
 		System.out.println("Largest Grid");
 		for(int i=0; i<largerstArrayList.size();i++) {
-			System.out.println(largerstArrayList.get(i).getRaw() + " : "+largerstArrayList.get(i).getCol());
+			System.out.println(largerstArrayList.get(i).getRaw() + " : "+largerstArrayList.get(i).getRaw());
 		}
 	}
 	
@@ -152,7 +152,7 @@ public class Test {
 		boolean isTrue = false;
 		for(int i=0; i<checkedArrayList.size();i++) {
 			if(checkedArrayList.get(i).getCol() == node.getCol() && checkedArrayList.get(i).getRaw() == node.getRaw()) {
-				isTrue = true;
+				isTrue = checkedArrayList.get(i).equals(node);
 			}
 			if(isTrue)
 				break;

@@ -144,7 +144,7 @@ public class Test {
 	public static void printLargestGrid() {
 		System.out.println("Largest Grid");
 		for(int i=0; i<largerstArrayList.size();i++) {
-			System.out.println(largerstArrayList.get(i).getRaw() + " : "+largerstArrayList.get(i).getCol());
+			System.out.println(largerstArrayList.get(i).getRaw() + " : "+largerstArrayList.get(i).getRaw());
 		}
 	}
 	
