@@ -1,0 +1,91 @@
+package com.eyepax;
+
+import java.awt.Color;
+import java.util.ArrayList;
+import java.util.Random;
+
+public class Test {
+	
+	private static Color[][] colorGrid;
+	//private static ArrayList<ColorNode> arrayList;
+	private static ArrayList<ColorNode> largerstArrayList;
+	private static ArrayList<ColorNode> temlArrayList;
+
+	public static void main(String[] args) {
+		generateColorGrid(2,2);
+		printColor();
+	}
+	
+	public static void getLargestColorGrid() {
+		//arrayList = new ArrayList<>();
+		largerstArrayList = new ArrayList<>();
+		temlArrayList = new ArrayList<>();
+		
+		for(int i=0; i<colorGrid.length;i++) {
+			for(int j=0; i<colorGrid[i].length; j++) {
+				if(checkAdjacentVertically(i,j)) {
+					temlArrayList.add(new ColorNode(i, j, colorGrid[i][j].toString()));
+					temlArrayList.add(new ColorNode(i, j+1, colorGrid[i][j].toString()));
+				}
+				if(checkAdjacentHorizontically(i,j)) {
+					temlArrayList.add(new ColorNode(i, j, colorGrid[i][j].toString()));
+					temlArrayList.add(new ColorNode(i+1, j, colorGrid[i][j].toString()));
+				}
+			}
+		}
+		
+	}
+	
+	public static boolean checkAdjacentVertically(int raw, int col) {
+		Color firstCol = colorGrid[raw][col];
+		Color secondCol = colorGrid[raw+1][col];
+		if((firstCol.getRed()== secondCol.getRed())&& (firstCol.getGreen()== secondCol.getGreen()) && (firstCol.getBlue()== secondCol.getBlue())) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	public static boolean checkAdjacentHorizontically(int raw, int col) {
+		Color firstCol = colorGrid[raw][col];
+		Color secondCol = colorGrid[raw][col+1];
+		if((firstCol.getRed()== secondCol.getRed())&& (firstCol.getGreen()== secondCol.getGreen()) && (firstCol.getBlue()== secondCol.getBlue())) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	/*public static boolean checkIsAdjacent(Color firstCol, Color secondCol) {
+		if((firstCol.getRed()== secondCol.getRed())&& (firstCol.getGreen()== secondCol.getGreen()) && (firstCol.getBlue()== secondCol.getBlue())) {
+			return true;
+		}else {
+			return false;
+		}
+	}*/
+
+	public static void generateColorGrid(int rows, int col) {
+		colorGrid = new Color[rows][col];
+		Random rand = new Random();
+		int r = 0;
+		int g = 0;
+		int b = 0;
+		for(int i=0; i<rows; i++) {
+			for(int j=0; j<col; j++) {
+				r = rand.nextInt(256);
+				g = rand.nextInt(256);
+				b = rand.nextInt(256);
+				colorGrid[i][j] = new Color(r, g, b);
+			}
+		}
+	}
+	
+	public static void printColor() {
+		for(int i=0; i<colorGrid.length; i++) {
+			for(int j=0; j<colorGrid[i].length; j++) {
+				System.out.println(colorGrid[i][j]);
+			}
+		}
+	}
+}
+

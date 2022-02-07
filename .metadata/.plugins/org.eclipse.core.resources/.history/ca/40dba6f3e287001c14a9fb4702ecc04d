@@ -1,0 +1,38 @@
+package com.eyepax;
+
+import java.awt.Color;
+import java.util.Random;
+
+public class MainDemo {
+	
+	private static Color[][] colorGrid;
+
+	public static void main(String[] args) {
+		generateColorGrid(2,2);
+		printColor();
+	}
+
+	public static void generateColorGrid(int rows, int col) {
+		colorGrid = new Color[rows][col];
+		Random rand = new Random();
+		float r = 0.0f;
+		float g = 0.0f;
+		float b = 0.0f;
+		for(int i=0; i<rows; i++) {
+			for(int j=0; j<col; j++) {
+				r = rand.nextFloat();
+				g = rand.nextFloat();
+				b = rand.nextFloat();
+				colorGrid[i][j] = new Color(r, g, b);
+			}
+		}
+	}
+	
+	public static void printColor() {
+		for(int i=0; i<colorGrid.length; i++) {
+			for(int j=0; j<colorGrid[i].length; j++) {
+				System.out.println(colorGrid[i][j]);
+			}
+		}
+	}
+}

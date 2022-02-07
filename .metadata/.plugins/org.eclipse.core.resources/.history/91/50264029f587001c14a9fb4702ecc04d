@@ -1,0 +1,24 @@
+package com.eyepax;
+
+import java.util.ArrayList;
+
+public class Hello {
+
+	public static void main(String[] args) {
+		
+		ArrayList<ColorNode> checkedArrayList = new ArrayList<>();
+		ColorNode node1 = new ColorNode(10, 10);
+		ColorNode node2 = new ColorNode(10, 10);
+		
+		checkedArrayList.add(node1);
+		
+		System.out.println(checkedArrayList.contains(node1));
+		
+
+	}
+	
+	void checkContains(ColorNode node) {
+		node
+	}
+
+}

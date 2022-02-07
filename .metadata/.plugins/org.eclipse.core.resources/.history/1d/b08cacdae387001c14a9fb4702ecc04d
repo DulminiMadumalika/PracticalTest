@@ -1,0 +1,13 @@
+package com.eyepax;
+
+public class ColorNode {
+	
+	private int raw;
+	private int col;
+	private String color;
+	
+	public ColorNode(int raw, int col, String color) {
+		
+	}
+
+}
